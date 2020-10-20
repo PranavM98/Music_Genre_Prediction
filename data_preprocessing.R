@@ -38,19 +38,6 @@ merged<-merged %>% drop_na()
 #####
 
 
-
-
-
-
-
-table(data2$Genre)
-
-
-Metal<-data2 %>%
-  filter(Genre=='celticmetal' | Genre=='post-metal')
-
-
-
 #NEW DATA has genres that have atleast 100 songs
 #new_data<-data2[data2$Genre %in% names(table(data2$Genre))[table(data2$Genre)>=100],]
 new_data<-data2
@@ -71,14 +58,6 @@ Metal<-data2[data2$Genre %in% metalist,]
 Metal$index<-c(1:dim(Metal)[1])
 Metal$Genre<-factor(Metal$Genre)
 
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Metal)+geom_boxplot()
-ggplot(aes(x=Genre,y=Valence,color=Genre),data=Metal)+geom_boxplot()
 
 #Groove - Trash
 
@@ -101,28 +80,6 @@ Classical<-data2[data2$Genre %in% classicalist,]
 Classical$index<-c(1:dim(Classical)[1])
 Classical$Genre<-factor(Classical$Genre)
 
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Classical)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Classical)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Classical)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Classical)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Classical)+geom_boxplot()
-#ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Classical)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Classical)+geom_boxplot()
-ggplot(aes(x=Genre,y=Valence,color=Genre),data=Classical)+geom_boxplot()
-
-
-#CLASSICAL AND METAL
-cm<-data2[data2$Genre %in% classicalist | data2$Genre %in% metalist,]
-cm$Genre<-factor(cm$Genre)
-
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=cm)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=cm)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=cm)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=cm)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=cm)+geom_boxplot()
-#ggplot(aes(x=Genre,y=Tempo,color=Genre),data=cm)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=cm)+geom_boxplot()
-
 
 ### Pop
 
@@ -140,15 +97,6 @@ poplist<-unique(poplist)
 Pop<-data2[data2$Genre %in% poplist,]
 #Classical$index<-c(1:dim(Classical)[1])
 Pop$Genre<-factor(Pop$Genre)
-
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Pop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Pop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Pop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Pop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Pop)+geom_boxplot()
-#ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Pop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Pop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Valence,color=Genre),data=Pop)+geom_boxplot()
 
 
 
@@ -170,15 +118,6 @@ Folk<-data2[data2$Genre %in% folklist,]
 #Classical$index<-c(1:dim(Classical)[1])
 Folk$Genre<-factor(Folk$Genre)
 
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Folk)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Folk)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Folk)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Folk)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Folk)+geom_boxplot()
-#ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Folk)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Folk)+geom_boxplot()
-
-
 ### Rock
 
 rocklist=c()
@@ -194,14 +133,6 @@ rocklist<-unique(rocklist)
 Rock<-data2[data2$Genre %in% rocklist,]
 #Classical$index<-c(1:dim(Classical)[1])
 Rock$Genre<-factor(Rock$Genre)
-
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Rock)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Rock)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Rock)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Rock)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Folk)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Rock)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Rock)+geom_boxplot()
 
 
 
@@ -221,14 +152,6 @@ Indie<-data2[data2$Genre %in% indielist,]
 #Classical$index<-c(1:dim(Classical)[1])
 Indie$Genre<-factor(Indie$Genre)
 
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Indie)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Indie)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Indie)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Indie)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Indie)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Indie)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Indie)+geom_boxplot()
-
 
 
 ### Hiphop
@@ -246,14 +169,6 @@ hiphoplist<-unique(hiphoplist)
 HipHop<-data2[data2$Genre %in% hiphoplist,]
 #Classical$index<-c(1:dim(Classical)[1])
 HipHop$Genre<-factor(HipHop$Genre)
-
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=HipHop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=HipHop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=HipHop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=HipHop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=HipHop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=HipHop)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=HipHop)+geom_boxplot()
 
 
 
@@ -275,14 +190,6 @@ RB<-data2[data2$Genre %in% rblist,]
 #Classical$index<-c(1:dim(Classical)[1])
 RB$Genre<-factor(RB$Genre)
 
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=RB)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=RB)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=RB)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=RB)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=RB)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=RB)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=RB)+geom_boxplot()
-
 
 
 
@@ -300,14 +207,6 @@ jazzlist<-unique(jazzlist)
 Jazz<-data2[data2$Genre %in% jazzlist,]
 #Classical$index<-c(1:dim(Classical)[1])
 Jazz$Genre<-factor(Jazz$Genre)
-
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Jazz)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Jazz)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Jazz)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Jazz)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Jazz)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Jazz)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Jazz)+geom_boxplot()
 
 ### Blues
 blueslist=c()
@@ -342,15 +241,6 @@ houselist<-unique(houselist)
 House<-data2[data2$Genre %in% houselist,]
 #Classical$index<-c(1:dim(Classical)[1])
 House$Genre<-factor(House$Genre)
-
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=House)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=House)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=House)+geom_boxplot()
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=House)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=House)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=House)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=House)+geom_boxplot()
-
 
 
 ######Dubstep 
@@ -390,7 +280,42 @@ Punk$Genre<-factor(Punk$Genre)
 
 
 
-#### soundtrack
+###### EDM
+
+edmlist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('edm', new_data[i,'Genre'], ignore.case ="True")
+  if (flag!=-1){
+    edmlist<-append(edmlist,new_data[i,'Genre'])
+  }
+}
+edmlist<-unique(edmlist)
+
+
+EDM<-data2[data2$Genre %in% edmlist,]
+#Classical$index<-c(1:dim(Classical)[1])
+EDM$Genre<-factor(EDM$Genre)
+
+###### Country
+
+countrylist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('country', new_data[i,'Genre'], ignore.case ="True")
+  if (flag!=-1){
+    countrylist<-append(countrylist,new_data[i,'Genre'])
+  }
+}
+countrylist<-unique(countrylist)
+
+
+Country<-data2[data2$Genre %in% countrylist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Country$Genre<-factor(Country$Genre)
+
+
+#### Soundtrack
 
 
 soundtracklist=c()
@@ -408,14 +333,40 @@ Soundtrack<-data2[data2$Genre %in% soundtracklist,]
 #Classical$index<-c(1:dim(Classical)[1])
 Soundtrack$Genre<-factor(Soundtrack$Genre)
 
-ggplot(aes(x=Genre,y=Danceability,color=Genre),data=Soundtrack)+geom_boxplot()
-ggplot(aes(x=Genre,y=Energy,color=Genre),data=Soundtrack)+geom_boxplot()
-ggplot(aes(x=Genre,y=Loudness,color=Genre),data=Soundtrack)+geom_boxplot()
 
-ggplot(aes(x=Genre,y=Speechness,color=Genre),data=Soundtrack)+geom_boxplot()
-ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=Soundtrack)+geom_boxplot()
-ggplot(aes(x=Genre,y=Tempo,color=Genre),data=Soundtrack)+geom_boxplot()
-ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Soundtrack)+geom_boxplot()
+####### Techno
+
+technolist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('techno', new_data[i,'Genre'], ignore.case ="True")
+  if (flag!=-1){
+    technolist<-append(technolist,new_data[i,'Genre'])
+  }
+}
+technolist<-unique(technolist)
+
+
+Techno<-data2[data2$Genre %in% technolist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Techno$Genre<-factor(Techno$Genre)
+
+####### Rap
+
+raplist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('rap', new_data[i,'Genre'], ignore.case ="True")
+  if (flag!=-1){
+    raplist<-append(raplist,new_data[i,'Genre'])
+  }
+}
+raplist<-unique(raplist)
+
+
+Rap<-data2[data2$Genre %in% raplist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Rap$Genre<-factor(Rap$Genre)
 
 
 
@@ -424,16 +375,19 @@ ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=Soundtrack)+geom_boxplot()
 ########### Common Genres
 
 Genres_list=c('blueslist','classicalist','folklist','hiphoplist','houselist',
-            'indielist','jazzlist','metalist','poplist','rblist','rocklist')
+            'indielist','jazzlist','metalist','poplist','rblist','rocklist',
+            'punklist','dubsteplist','soundtracklist','edmlist','countrylist',
+            'technolist','raplist')
 
 
 Genres_list=c(blueslist,classicalist,folklist,hiphoplist,houselist,
               indielist,jazzlist,metalist,poplist,rblist,rocklist,
-              punklist,dubsteplist)
+              punklist,dubsteplist,soundtracklist,edmlist,countrylist,
+              technolist,raplist)
 
-print(intersect(classicalist,folklist))
+print(intersect(poplist,folklist))
 
-gl
+gl=c()
 for (i in Genres_list){
   gl<-append(gl,i)
 }
@@ -447,30 +401,56 @@ test<-data2[!data2$Genre %in% gl,]
 
 
 ##Combined
-for (i in (1:dim(data2)[1])){
-  folk<-regexpr('folk', data2[i,'Genre'], ignore.case ="True")
-  if (folk!=-1){
-    data2[i,'Overall_Genre']<-"Folk"
-  }
-  classical<-regexpr('classical', data2[i,'Genre'], ignore.case ="True")
-  if (classical!=-1){
-    data2[i,'Overall_Genre']<-"Classical"
-  }
-  metal<-regexpr('metal', data2[i,'Genre'], ignore.case ="True")
-  if (metal!=-1){
-    data2[i,'Overall_Genre']<-"Metal"
-  }
-  pop<-regexpr('pop', data2[i,'Genre'], ignore.case ="True")
-  if (pop!=-1){
-    data2[i,'Overall_Genre']<-"Pop"
-  }
-  house<-regexpr('house', data2[i,'Genre'], ignore.case ="True")
-  if (house!=-1){
-    data2[i,'Overall_Genre']<-"House"
-  }
-}
+
+indierocklist<-c("belgianindierock","indiegaragerock","deepindierock",     
+                 "indieemorock","brazilianindierock","britishindierock",  
+                 "danishpoprock")
+
+indiepoplist<-c("swedishindiepop","danishindiepop","italianindiepop","indiepoptimism")
+
+bluesrocklist<-c("blues-rock","psychedelicblues-rock")
+
+poprock<-c('danishpoprock')
+
+folkpop<-c("frenchfolkpop")
+
+indiefolk<-c("australianindiefolk")
+
+indielist<-indielist[!indielist %in% indierocklist]
+indielist<-indielist[!indielist %in% indiepoplist]
+rocklist<-rocklist[!rocklist %in% indierocklist]
+poplist<-poplist[!poplist %in% indiepoplist]
+
+blueslist<-blueslist[!blueslist %in% bluesrocklist]
+rocklist<-rocklist[!rocklist %in% bluesrocklist ]
+
+poplist <-poplist[!poplist %in% poprock]
+rocklist <-rocklist[!rocklist %in% poprock]
+
+folklist <-folklist[!folklist %in% folkpop]
+poplist <-poplist[!poplist %in% folkpop]
+
+folklist <-folklist[!folklist %in% indiefolk]
+indielist<-indielist[!indielist %in% indiefolk]
+
+
+
+Genres_list=c(blueslist,classicalist,folklist,hiphoplist,houselist,
+              indielist,jazzlist,metalist,poplist,rblist,rocklist,
+              punklist,dubsteplist)
+
+
+
 all<-data2[data2$Overall_Genre=="Classical" | data2$Overall_Genre == "Metal" |
-             data2$Overall_Genre == "Pop"| data2$Overall_Genre=="Folk" | data2$Overall_Genre=='House',]
+             data2$Overall_Genre == "Pop"| data2$Overall_Genre=="Folk" | 
+             data2$Overall_Genre=='House',]
+
+
+
+
+data2$Overall_Genre[data2$Genre %in% classicalist]<-"Classical"
+
+
 library(dplyr)
 library(tidyr)
 all<-all %>%
@@ -478,7 +458,6 @@ all<-all %>%
 ggplot(aes(x=Overall_Genre,y=Danceability,color=Overall_Genre),data=all)+geom_boxplot()
 ggplot(aes(x=Overall_Genre,y=Energy,color=Overall_Genre),data=all)+geom_boxplot()
 ggplot(aes(x=Overall_Genre,y=Loudness,color=Overall_Genre),data=all)+geom_boxplot()
-
 ggplot(aes(x=Overall_Genre,y=Speechness,color=Overall_Genre),data=all)+geom_boxplot()
 ggplot(aes(x=Overall_Genre,y=Instrumentalness,color=Overall_Genre),data=all)+geom_boxplot()
 ggplot(aes(x=Overall_Genre,y=Tempo,color=Overall_Genre),data=all)+geom_boxplot()
