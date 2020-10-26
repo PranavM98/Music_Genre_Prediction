@@ -35,6 +35,8 @@ merged<-merge(x=data2,y=data1,by.x="ID",by.y="id",all.x=TRUE)
 library(tidyr)
 merged<-merged %>% drop_na()
 
+
+
 #####
 
 
@@ -468,6 +470,10 @@ Worship$Genre<-factor(Worship$Genre)
 
 funklist=c()
 
+
+
+
+
 for (i in (1:dim(new_data)[1])){
   flag<-regexpr('funk', new_data[i,'Genre'], ignore.case ="True")
   
@@ -845,6 +851,8 @@ data2$Overall_Genre[data2$Genre %in% emolist]<-"Emo"
 final<-data2
 final<-na.omit(final)
 
+
+write.csv(final,"cleaned_data.csv", row.names = FALSE)
 library(dplyr)
 library(tidyr)
 
