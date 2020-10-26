@@ -72,9 +72,13 @@ for (i in (1:dim(new_data)[1])){
   flag<-regexpr('classical', new_data[i,'Genre'], ignore.case ="True")
   if (flag!=-1){
     classicalist<-append(classicalist,new_data[i,'Genre'])
+
   }
 }
+
+classicalist<-append(classicalist,"orchestralperformance")
 classicalist<-unique(classicalist)
+
 
 Classical<-data2[data2$Genre %in% classicalist,]
 Classical$index<-c(1:dim(Classical)[1])
@@ -369,35 +373,199 @@ Rap<-data2[data2$Genre %in% raplist,]
 Rap$Genre<-factor(Rap$Genre)
 
 
+## Renaissance
+
+renaissancelist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('renaissance', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    renaissancelist<-append(renaissancelist,new_data[i,'Genre'])
+  }
+}
+renaissancelist<-unique(renaissancelist)
+
+Renaissance<-data2[data2$Genre %in% renaissancelist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Renaissance$Genre<-factor(Renaissance$Genre)
+
+
+## acappella
+
+acappellalist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('acappella', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    acappellalist<-append(acappellalist,new_data[i,'Genre'])
+  }
+}
+acappellalist<-unique(acappellalist)
+
+Acappella<-data2[data2$Genre %in% acappellalist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Acappella$Genre<-factor(Acappella$Genre)
+
+## reggae
+
+
+reggaelist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('reggae', new_data[i,'Genre'], ignore.case ="True")
+  if (flag!=-1){
+    reggaelist<-append(reggaelist,new_data[i,'Genre'])
+  }
+}
+reggaelist<-unique(reggaelist)
+
+Reggae<-data2[data2$Genre %in% reggaelist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Reggae$Genre<-factor(Reggae$Genre)
+
+## Electronic
+
+electroniclist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('electronic', new_data[i,'Genre'], ignore.case ="True")
+  flag1<-regexpr('electro', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1 | flag1!=-1){
+    electroniclist<-append(electroniclist,new_data[i,'Genre'])
+  }
+}
+electroniclist<-unique(electroniclist)
+
+
+Electronic<-data2[data2$Genre %in% electroniclist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Electronic$Genre<-factor(Electronic$Genre)
+
+## Worship
+
+
+worshiplist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('worship', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    worshiplist<-append(worshiplist,new_data[i,'Genre'])
+  }
+}
+worshiplist<-unique(worshiplist)
+
+Worship<-data2[data2$Genre %in% worshiplist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Worship$Genre<-factor(Worship$Genre)
+
+
+## Funk
+
+
+funklist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('funk', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    funklist<-append(funklist,new_data[i,'Genre'])
+  }
+}
+funklist<-unique(funklist)
+funklist<-append(funklist,'Go-Go')
+
+Funk<-data2[data2$Genre %in% funklist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Funk$Genre<-factor(Funk$Genre)
+
+
+
+
+## Dance
+
+
+dancelist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('dance', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    dancelist<-append(dancelist,new_data[i,'Genre'])
+  }
+}
+dancelist<-unique(dancelist)
+
+Dance<-data2[data2$Genre %in% dancelist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Dance$Genre<-factor(Dance$Genre)
+
+
+
+## Reading
+
+
+readinglist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('read', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    readinglist<-append(readinglist,new_data[i,'Genre'])
+  }
+}
+readinglist<-unique(readinglist)
+
+Reading<-data2[data2$Genre %in% readinglist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Reading$Genre<-factor(Reading$Genre)
+
+
+## Beats
+
+
+beatslist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('beat', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    beatslist<-append(beatslist,new_data[i,'Genre'])
+  }
+}
+beatslist<-unique(beatslist)
+
+Beats<-data2[data2$Genre %in% beatslist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Beats$Genre<-factor(Beats$Genre)
+
+
+
+## Gospel
+
+
+gospelist=c()
+
+for (i in (1:dim(new_data)[1])){
+  flag<-regexpr('gospel$', new_data[i,'Genre'], ignore.case ="True")
+  
+  if (flag!=-1){
+    gospelist<-append(gospelist,new_data[i,'Genre'])
+  }
+}
+gospelist<-unique(gospelist)
+
+Gospel<-data2[data2$Genre %in% gospelist,]
+#Classical$index<-c(1:dim(Classical)[1])
+Gospel$Genre<-factor(Gospel$Genre)
+
 
 
 
 ########### Common Genres
-
-Genres_list=c('blueslist','classicalist','folklist','hiphoplist','houselist',
-            'indielist','jazzlist','metalist','poplist','rblist','rocklist',
-            'punklist','dubsteplist','soundtracklist','edmlist','countrylist',
-            'technolist','raplist')
-
-
-Genres_list=c(blueslist,classicalist,folklist,hiphoplist,houselist,
-              indielist,jazzlist,metalist,poplist,rblist,rocklist,
-              punklist,dubsteplist,soundtracklist,edmlist,countrylist,
-              technolist,raplist)
-
-print(intersect(poplist,folklist))
-
-gl=c()
-for (i in Genres_list){
-  gl<-append(gl,i)
-}
-
- 
-
-test<-data2[!data2$Genre %in% gl,]
-
-
-
 
 
 ##Combined
@@ -406,15 +574,40 @@ indierocklist<-c("belgianindierock","indiegaragerock","deepindierock",
                  "indieemorock","brazilianindierock","britishindierock",  
                  "danishpoprock")
 
+
+IndieRock<-data2[data2$Genre %in% indierocklist,]
+#Classical$index<-c(1:dim(Classical)[1])
+IndieRock$Genre<-factor(IndieRock$Genre)
+
 indiepoplist<-c("swedishindiepop","danishindiepop","italianindiepop","indiepoptimism")
+
+IndiePop<-data2[data2$Genre %in% indiepoplist,]
+#Classical$index<-c(1:dim(Classical)[1])
+IndiePop$Genre<-factor(IndiePop$Genre)
 
 bluesrocklist<-c("blues-rock","psychedelicblues-rock")
 
-poprock<-c('danishpoprock')
+BluesRock<-data2[data2$Genre %in% bluesrocklist,]
+#Classical$index<-c(1:dim(Classical)[1])
+BluesRock$Genre<-factor(BluesRock$Genre)
 
-folkpop<-c("frenchfolkpop")
+poprocklist<-c('danishpoprock')
 
-indiefolk<-c("australianindiefolk")
+PopRock<-data2[data2$Genre %in% poprocklist,]
+#Classical$index<-c(1:dim(Classical)[1])
+PopRock$Genre<-factor(PopRock$Genre)
+
+folkpoplist<-c("frenchfolkpop")
+
+FolkPop<-data2[data2$Genre %in% folkpoplist,]
+#Classical$index<-c(1:dim(Classical)[1])
+FolkPop$Genre<-factor(FolkPop$Genre)
+
+indiefolklist<-c("australianindiefolk")
+
+IndieFolk<-data2[data2$Genre %in% indiefolklist,]
+#Classical$index<-c(1:dim(Classical)[1])
+IndieFolk$Genre<-factor(IndieFolk$Genre)
 
 indielist<-indielist[!indielist %in% indierocklist]
 indielist<-indielist[!indielist %in% indiepoplist]
@@ -435,20 +628,67 @@ indielist<-indielist[!indielist %in% indiefolk]
 
 
 
+
+
+Genres_list=c('blueslist','classicalist','folklist','hiphoplist','houselist',
+              'indielist','jazzlist','metalist','poplist','rblist','rocklist',
+              'punklist','dubsteplist','soundtracklist','edmlist','countrylist',
+              'technolist','raplist','electroniclist','indierocklist','indiepoplist',
+              'bluesrocklist','poprocklist','folkpoplist','indiefolklist','renaissancelist','acappellalist',
+              'reggaelist','worshiplist','funklist','dancelist','readinglist','beatslist',
+              'gospelist')
+
+
+Genres_list=c(blueslist,classicalist,folklist,hiphoplist,houselist,
+              indielist,jazzlist,metalist,poplist,rblist,rocklist,
+              punklist,dubsteplist,soundtracklist,edmlist,countrylist,
+              technolist,raplist,electroniclist,indierocklist,indiepoplist,
+              bluesrocklist,poprocklist,folkpoplist,indiefolklist,renaissancelist,
+              acappellalist,reggaelist,worshiplist,funklist,dancelist,readinglist,
+              beatslist,gospelist)
+
+#print(intersect(poplist,folklist))
+
+gl=c()
+for (i in Genres_list){
+  gl<-append(gl,i)
+}
+
+
+
+test<-data2[!data2$Genre %in% gl,]
+
+
+
+
+##TEsting Plots
+all<-Rap
+ggplot(aes(x=Genre,y=Danceability,color=Genre),data=all)+geom_boxplot()
+ggplot(aes(x=Genre,y=Energy,color=Genre),data=all)+geom_boxplot()
+ggplot(aes(x=Genre,y=Loudness,color=Genre),data=all)+geom_boxplot()
+ggplot(aes(x=Genre,y=Speechness,color=Genre),data=all)+geom_boxplot()
+ggplot(aes(x=Genre,y=Instrumentalness,color=Genre),data=all)+geom_boxplot()
+ggplot(aes(x=Genre,y=Tempo,color=Genre),data=all)+geom_boxplot()
+ggplot(aes(x=Genre,y=Duration_ms,color=Genre),data=all)+geom_boxplot()
+
+
+###
+
+
 Genres_list=c(blueslist,classicalist,folklist,hiphoplist,houselist,
               indielist,jazzlist,metalist,poplist,rblist,rocklist,
               punklist,dubsteplist)
 
 
 
-all<-data2[data2$Overall_Genre=="Classical" | data2$Overall_Genre == "Metal" |
-             data2$Overall_Genre == "Pop"| data2$Overall_Genre=="Folk" | 
-             data2$Overall_Genre=='House',]
+all<-data2[data2$Overall_Genre == "GoGo"| data2$Overall_Genre == "Funk" ,]
+library(tidyr)
+all<-all %>% drop_na()
 
 
 
-
-data2$Overall_Genre[data2$Genre %in% classicalist]<-"Classical"
+data2$Overall_Genre[data2$Genre %in% funklist]<-"Funk"
+data2$Overall_Genre[data2$Genre %in% gogolist]<-"GoGo"
 
 
 library(dplyr)
