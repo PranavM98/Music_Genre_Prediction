@@ -20,3 +20,4 @@ ggplot(data=music,aes(x=Tempo,y=Overall_Genre,color=Overall_Genre)) +geom_boxplo
 ggplot(data=music,aes(x=Duration(seconds),y=Overall_Genre,color=Overall_Genre)) +geom_boxplot()
 
 
+0.5,.0.6,0.3,0.7,0.8
